@@ -2,7 +2,9 @@ import { handle } from "hono/vercel";
 import { Hono } from "hono";
 import { helloHandler } from "../handler/hello.js";
 
-export const runtime = "edge";
+export const config = {
+  runtime: "edge",
+};
 
 const app = new Hono().basePath("/api");
 
