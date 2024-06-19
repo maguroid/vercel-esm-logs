@@ -1,5 +1,6 @@
 import { handle } from "hono/vercel";
 import { Hono } from "hono";
+import { helloHandler } from "../handler/hello.js";
 
 export const runtime = "edge";
 
@@ -12,6 +13,8 @@ app.get("/log", (c) => {
 
   return c.json({ message: "Hello from Hono" });
 });
+
+app.get("/hello", helloHandler);
 
 export const GET = handle(app);
 export const POST = handle(app);
